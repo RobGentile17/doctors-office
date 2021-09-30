@@ -1,0 +1,15 @@
+<h1><%= @patient.name %>'s Page</h1>
+
+<% @patient.doctors.uniq.each do |d| %><br>
+  <h3>Name of Doctor:</h3><%= link_to d.name, doctor_path(d) %><br>
+  <br>
+  <br>
+  <% d.appointments.each do |a| %>
+      <h3>Date of Appointment</h3><li><%= a.date %></li>
+      <br>
+      <br>
+      <h3>Important Notes</h3><p><%= a.notes %></p>
+    <% end %>
+<% end %>
+
+
